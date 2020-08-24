@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ankane/chartkick.git
+  revision: 1947ed01c7da509f2d954aac8c26fddbba9a65dc
+  specs:
+    chartkick (3.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -208,6 +214,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick!
   jbuilder (~> 2.7)
   jquery-datatables
   listen (~> 3.2)
