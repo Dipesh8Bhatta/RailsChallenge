@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Challenge task in rails.
 
-Things you may want to cover:
+It has following features:
+1. Login.
+2. Search filters on two categories.
+3. Upload CSV file and update the table.
+4. Barchart based on categories.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Note: Sample csv file to upload is provided in the '/public' folder.

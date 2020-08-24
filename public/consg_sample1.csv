@@ -1,0 +1,5 @@
+consignment_type,name,source,destination,consignmentID,entryAt,exitAt
+Wood,Wooden Boards 20x20,Australia/Sydney,Australia/Melbourne,DX1001BS,11/01/2020 18:53,
+Metal,Roll of Paper,Australia/Perth,Australia/Brisbane,PB1501VIP,11/01/2020 16:53,
+Paper,Edible Oil (10L),Australia/Perth,Australia/Brisbane,RO1501ST,05/01/2020 16:53,
+Liquid,Edible Oil (10L),Australia/Perth,Australia/Brisbane,GO1501SL,05/01/2020 16:53,
