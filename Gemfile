@@ -31,6 +31,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.15'
 
+# For creating filters in the provided table of consignment data.
+gem 'ajax-datatables-rails'
+gem 'jquery-datatables'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

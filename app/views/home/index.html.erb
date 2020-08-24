@@ -1,8 +1,21 @@
 <% if current_user %>
   <p id="notice"><%= flash[:notice] %></p>
   Logged in as <%= current_user.email %>.
-  
-  <table>
+
+  <%= csrf_meta_tag %>
+  <br><br>
+  <div>
+    <strong>Consignment Filter</strong>
+    <br><br>
+    <lable for="consignmentTypeFilter"> By Type </label>
+    <input type="text" name="arrivalDate" id="consignmentTypeFilter">
+    <br><br>
+    <lable for="arrivalDate"> By Date </label>
+    <input type="date" name="arrivalDate" id="arrivalDate">
+    <button type="button" id="submitFilter">Go</button>
+  </div>
+  <br><br>
+  <table border="1" width="100%">
     <thead>
       <tr>
         <th>Consignment Type</th>
@@ -15,7 +28,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="consignment-tbody">
       <% if @consignments != nil %>
         <% @consignments.each do |consignment| %>
           <tr>
@@ -39,9 +52,35 @@
       <%= submit_tag "Import CSV" %>
     <% end %>
   </div>
-
+  <br><br>
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 
   <%= link_to "Log In", login_path %>
 <% end %>
+
+<script>
+$('#submitFilter').on('click', function () {
+  let consignmentType = $('#consignmentTypeFilter').val();
+  let arrivalDate = $('#arrivalDate').val();
+  $.ajax({
+    type: "POST",
+    url: "<%= search_path %>",
+    data: {authenticity_token: $('meta[name="csrf-token"]').attr("content"), consignmentType : consignmentType, arrivalDate : arrivalDate},
+    dataType: 'json',
+    success: function(data)
+    {
+      $('.consignment-tbody').html('');
+      let appendElement = "";
+      for(var i = 0; i < data.length; i++) {
+        appendElement = appendElement + "<tr><td>" + data[i]['consignment_type'] + "</td><td>" +
+                        data[i]['name'] + "</td><td>" + data[i]['source'] + "</td><td>" +
+                        data[i]['destination'] + "</td><td>" + data[i]['consignmentID'] + 
+                        "</td><td>" + data[i]['entryAt'] + "</td><td>" + data[i]['exitAt'] + "</td> </tr>";
+      }
+      $('.consignment-tbody').html(appendElement);
+    }
+  });
+
+});
+</script>
