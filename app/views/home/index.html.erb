@@ -1,8 +1,47 @@
 <% if current_user %>
+  <p id="notice"><%= flash[:notice] %></p>
   Logged in as <%= current_user.email %>.
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Consignment Type</th>
+        <th>Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Consignment ID</th>
+        <th>Entry At</th>
+        <th>Exit At</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @consignments != nil %>
+        <% @consignments.each do |consignment| %>
+          <tr>
+            <td><%= consignment.consignment_type %></td>
+            <td><%= consignment.name %></td>
+            <td><%= consignment.source %></td>
+            <td><%= consignment.destination %></td>
+            <td><%= consignment.consignmentID %></td>
+            <td><%= consignment.entryAt %></td>
+            <td><%= consignment.exitAt %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <h3> Import CSV </h3>
+    <%= form_tag import_consignments_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
+  </div>
+
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 
   <%= link_to "Log In", login_path %>
 <% end %>
-<p id="notice"><%= notice %></p>

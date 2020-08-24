@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  source: MyString
+  destination: MyString
+  consignmentID: MyString
+  entryAt: 
+  exitAt: 2020-08-24 14:54:15
+
+two:
+  type: 
+  name: MyString
+  source: MyString
+  destination: MyString
+  consignmentID: MyString
+  entryAt: 
+  exitAt: 2020-08-24 14:54:15

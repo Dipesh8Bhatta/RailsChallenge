@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'consignments/index'
+  resources :consignments do
+    collection {post :import}
+  end
   resources :users
   resources :home
   resources :sessions, only: [:new, :create, :destroy]

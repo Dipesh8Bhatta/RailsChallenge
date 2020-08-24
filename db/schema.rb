@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_012809) do
+ActiveRecord::Schema.define(version: 2020_08_24_064736) do
+
+  create_table "consignments", force: :cascade do |t|
+    t.string "consignment_type"
+    t.string "name"
+    t.string "source"
+    t.string "destination"
+    t.string "consignmentID"
+    t.datetime "entryAt"
+    t.datetime "exitAt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consignmentID"], name: "index_consignments_on_consignmentID", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
